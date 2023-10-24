@@ -6,7 +6,7 @@ public class TestRunner {
     @Karate.Test
     Karate run(){
         return Karate.run("classpath:features")
-        .tags("@End2End")
+        .tags("@Regression")
         .karateEnv("qa");
 
 
