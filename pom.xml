@@ -46,7 +46,32 @@
                     </includes>
                 </configuration>
             </plugin>
-        </plugins>
+
+        <plugin>
+            <groupId>net.masterthought</groupId>
+            <artifactId>maven-cucumber-reporting</artifactId>
+            <version>5.7.1</version>
+            <executions>
+                <execution>
+                    <id>execution</id>
+                    <phase>test</phase>
+                    <goals>
+                        <goal>generate</goal>
+                    </goals>
+                    <configuration>
+                        <projectName>Knight API Framework</projectName>
+                        <skip>false</skip>
+                        <outputDirectory>${project.build.directory}/cucumber-report</outputDirectory>
+                        <inputDirectory>${project.build.directory}</inputDirectory>
+                        <jsonFiles>
+                            <param>**/*.json</param>
+                        </jsonFiles>
+                        <checkBuildResult>false</checkBuildResult>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+    </plugins>
     </build>
 
 
