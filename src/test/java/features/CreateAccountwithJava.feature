@@ -2,7 +2,7 @@
 Feature: Create Account with Random Email using java
 
   Background: setup test
-    Given url  BASE_URL
+    Given url BASE_URL
 
     Scenario: Create valid account /api/accounts/add-primary-account
       Given path "/api/accounts/add-primary-account"

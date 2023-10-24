@@ -2,7 +2,7 @@
 Feature: Security token verify API calls
 
   Background: Setup test
-  Given url  BASE_URL
+  Given url BASE_URL
 
 
   Scenario: Send Request to /api/token/verify

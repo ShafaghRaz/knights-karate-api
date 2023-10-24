@@ -3,7 +3,7 @@ Feature: Plan code Testing
 
 
   Background: setup test
-    Given url  BASE_URL
+    Given url BASE_URL
   Scenario: Validate /api/plans/get-all-plan-code
     Given path "/api/token"
     Given request {"username" : "supervisor" , "password" : "tek_supervisor"}

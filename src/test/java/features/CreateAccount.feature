@@ -2,7 +2,7 @@
 Feature: Create Account Testing
 
   Background: setup test
-    Given url  BASE_URL
+    Given url BASE_URL
     * def tokenResult = callonce read('GenerateToken.feature')
     And print tokenResult
     * def validToken = "Bearer " + tokenResult.response.token

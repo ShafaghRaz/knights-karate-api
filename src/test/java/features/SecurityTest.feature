@@ -2,7 +2,7 @@
 Feature: Security Token API calls
 
   Scenario: Send Request to /api/token
-    Given url  BASE_URL
+    Given url BASE_URL
     And path "/api/token"
     And request {"username" : "supervisor" , "password" : "tek_supervisor"}
     When method post
