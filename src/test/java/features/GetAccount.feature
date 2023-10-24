@@ -1,20 +1,30 @@
-Feature: Account code Testing
+@Regression
+Feature: Get Account Feature Testing
 
 
   Background: setup test
-    Given url "https://qa.insurance-api.tekschool-students.com"
-  Scenario: Validate /api/accounts/get-account
-    Given path "/api/token"
-    Given request {"username" : "supervisor" , "password" : "tek_supervisor"}
-    When method post
-    Then status 200
-    And print response
-    * def validToken = "Bearer " + response.token
+    Given url  BASE_URL
+    * def tokenResult = callonce read('GenerateToken.feature')
+    And print tokenResult
+    * def validToken = "Bearer " + tokenResult.response.token
+
+  Scenario: testing endpoint /api/accounts/get-account
     Given path "/api/accounts/get-account"
-    And header Authorization = validToken
-    And param primaryPersonId == response.primaryPersonId
+    * def expectedId = 353
+    Given param primaryPersonId = expectedId
+    Given header Authorization = validToken
     When method get
     Then status 200
     And print response
+    And assert response.primaryPerson.id == expectedId
+
+    Scenario: Testing endpoint /api/accounts/get-account with primaryPersonId not exist
+      Given path "/api/accounts/get-account"
+      * def expectedId = 373
+      Given param primaryPersonId = expectedId
+      Given header Authorization = validToken
+      When method get
+      Then status 404
+      And print response.httpStatus == "NOT_FOUND"
 
 
