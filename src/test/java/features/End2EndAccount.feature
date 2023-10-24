@@ -2,7 +2,7 @@
 Feature: End to end account creation
 
   Background: Setup test to get token
-    Given url  BASE_URL
+    Given url BASE_URL
     * def tokenResult = callonce read('GenerateToken.feature')
     * def token = "Bearer " + tokenResult.response.token
 
